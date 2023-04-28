@@ -129,3 +129,27 @@ h1 {
 .label-score {
   margin-bottom: 2rem;
 }
+.set {
+  position: absolute;
+  right: 5px;
+  bottom: 80px;
+  display: none;
+}
+
+.setting {
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+}
+.tableOfSetting {
+  background-color: white;
+  padding: 10px;
+}
+
+label {
+  color: black;
+}
+.accept,
+.close {
+  margin: 5px;
+}

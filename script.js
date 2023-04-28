@@ -1,6 +1,7 @@
 const firstScore = 20;
 let score = 20;
 let highscore = 0;
+let between = document.querySelector(".between");
 const displayMessage = function (message) {
   document.querySelector(".message").textContent = message;
 };
@@ -63,6 +64,7 @@ function again() {
   document.querySelector(".message").style.fontSize = `2rem`;
   document.querySelector(".message").style.height = `3rem`;
   displayMessage(`Start guessing...`);
+  between.textContent = `(Between 1 and 100)`;
 }
 againBtn.addEventListener("click", again);
 document.addEventListener("keydown", function (e) {
@@ -75,4 +77,29 @@ const clear = document.querySelector(".clear");
 const highScore = document.querySelector(".highscore");
 clear.addEventListener("click", function () {
   highScore.innerHTML = "0";
+});
+
+// add "setting button"
+
+const settingBtn = document.querySelector(".setting");
+const closeBtn = document.querySelector(".close");
+const acceptBtn = document.querySelector(".accept");
+const set = document.querySelector(".set");
+
+settingBtn.addEventListener("click", function () {
+  set.style.display = "block";
+});
+
+closeBtn.addEventListener("click", function () {
+  set.style.display = "none";
+});
+const valueMaxNumber = document.querySelector(".maxNumber");
+valueMaxNumber.addEventListener("submit", function (e) {
+  e.preventDefault();
+});
+
+acceptBtn.addEventListener("click", function () {
+  between.textContent = `(Between 1 and ${valueMaxNumber.value})`;
+  secretNumber = Math.trunc(Math.random() * valueMaxNumber.value) + 1;
+  console.log(secretNumber);
 });
