@@ -116,12 +116,13 @@ let accept = false;
 acceptBtn.addEventListener("click", function () {
   if (valueMaxNumber.value < 1 || !valueMaxNumber.value) {
     alert("Enter number is greater than 0");
+    accept = false;
   } else {
     between.textContent = `(Between 1 and ${valueMaxNumber.value})`;
     secretNumber = Math.trunc(Math.random() * valueMaxNumber.value) + 1;
+    accept = true;
   }
 
-  accept = true;
   console.log(secretNumber);
   console.log(accept);
 });
