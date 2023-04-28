@@ -54,7 +54,6 @@ document.addEventListener("keydown", function (e) {
 let againBtn = document.querySelector(".again");
 function again() {
   score = 20;
-  secretNumber = Math.trunc(Math.random() * 100) + 1;
   displayNumber("?");
   document.querySelector(".guess").value = "";
   document.querySelector(".check").style.visibility = "visible";
@@ -64,7 +63,15 @@ function again() {
   document.querySelector(".message").style.fontSize = `2rem`;
   document.querySelector(".message").style.height = `3rem`;
   displayMessage(`Start guessing...`);
-  between.textContent = `(Between 1 and 100)`;
+  if (accept) {
+    between.textContent = `(Between 1 and ${valueMaxNumber.value})`;
+    secretNumber = Math.trunc(Math.random() * valueMaxNumber.value) + 1;
+  } else {
+    between.textContent = `(Between 1 and 100)`;
+    secretNumber = Math.trunc(Math.random() * 100) + 1;
+  }
+  // console.log(secretNumber);
+  // console.log(accept);
 }
 againBtn.addEventListener("click", again);
 document.addEventListener("keydown", function (e) {
@@ -94,12 +101,14 @@ closeBtn.addEventListener("click", function () {
   set.style.display = "none";
 });
 const valueMaxNumber = document.querySelector(".maxNumber");
-valueMaxNumber.addEventListener("submit", function (e) {
+newNumber = valueMaxNumber.addEventListener("submit", function (e) {
   e.preventDefault();
 });
-
+let accept = false;
 acceptBtn.addEventListener("click", function () {
   between.textContent = `(Between 1 and ${valueMaxNumber.value})`;
   secretNumber = Math.trunc(Math.random() * valueMaxNumber.value) + 1;
-  console.log(secretNumber);
+  accept = true;
+  // console.log(secretNumber);
+  // console.log(accept);
 });
