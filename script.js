@@ -51,6 +51,7 @@ document.addEventListener("keydown", function (e) {
   }
 });
 
+// create function for again action
 let againBtn = document.querySelector(".again");
 function again() {
   score = 20;
@@ -63,16 +64,18 @@ function again() {
   document.querySelector(".message").style.fontSize = `2rem`;
   document.querySelector(".message").style.height = `3rem`;
   displayMessage(`Start guessing...`);
-  if (accept) {
+  if (accept && valueMaxNumber.value > 0) {
     between.textContent = `(Between 1 and ${valueMaxNumber.value})`;
     secretNumber = Math.trunc(Math.random() * valueMaxNumber.value) + 1;
   } else {
     between.textContent = `(Between 1 and 100)`;
     secretNumber = Math.trunc(Math.random() * 100) + 1;
   }
-  // console.log(secretNumber);
+  console.log(secretNumber);
   // console.log(accept);
 }
+
+// turn on button and key esc for "again"
 againBtn.addEventListener("click", again);
 document.addEventListener("keydown", function (e) {
   if (e.code === "Escape") {
@@ -97,18 +100,28 @@ settingBtn.addEventListener("click", function () {
   set.style.display = "block";
 });
 
+// close button of setting
 closeBtn.addEventListener("click", function () {
   set.style.display = "none";
 });
+
+// accept button of setting
 const valueMaxNumber = document.querySelector(".maxNumber");
-newNumber = valueMaxNumber.addEventListener("submit", function (e) {
+valueMaxNumber.addEventListener("submit", function (e) {
   e.preventDefault();
 });
+console.log(secretNumber);
+
 let accept = false;
 acceptBtn.addEventListener("click", function () {
-  between.textContent = `(Between 1 and ${valueMaxNumber.value})`;
-  secretNumber = Math.trunc(Math.random() * valueMaxNumber.value) + 1;
+  if (valueMaxNumber.value < 1 || !valueMaxNumber.value) {
+    alert("Enter number is greater than 0");
+  } else {
+    between.textContent = `(Between 1 and ${valueMaxNumber.value})`;
+    secretNumber = Math.trunc(Math.random() * valueMaxNumber.value) + 1;
+  }
+
   accept = true;
-  // console.log(secretNumber);
-  // console.log(accept);
+  console.log(secretNumber);
+  console.log(accept);
 });
