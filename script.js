@@ -16,7 +16,6 @@ const displayScore = function (message) {
   document.querySelector(".score").textContent = message;
 };
 let secretNumber = Math.trunc(Math.random() * 100) + 1;
-
 // function which explain a process of game
 function play() {
   const guess = Number(document.querySelector(".guess").value);
@@ -33,7 +32,6 @@ function play() {
     document.querySelector(".check").style.visibility = "hidden";
     audio.play();
     audio.currentTime = 0;
-
     if (score > highscore) {
       highscore = score;
       displayHighscore(highscore);
@@ -50,22 +48,13 @@ function play() {
     }
   }
 }
-
 // for checking your result you can use to options - button "check" and key "Enter"
 document.querySelector(".check").addEventListener("click", play);
 document.addEventListener("keydown", function (e) {
   if (e.code === "Enter") {
     play();
   }
-  let againBtn = document.querySelector(".again");
-  againBtn.addEventListener("click", again)
-function again() {
- audio.pause();
-}
-
-
 });
-
 // create function for again action(to start the game again)
 let againBtn = document.querySelector(".again");
 function again() {
@@ -90,7 +79,6 @@ function again() {
   console.log(secretNumber);
   // console.log(accept);
 }
-
 // turn on button and key esc for "again"
 againBtn.addEventListener("click", again);
 document.addEventListener("keydown", function (e) {
@@ -98,36 +86,29 @@ document.addEventListener("keydown", function (e) {
     again();
   }
 });
-
 const clear = document.querySelector(".clear");
 const highScore = document.querySelector(".highscore");
 clear.addEventListener("click", function () {
   highScore.innerHTML = "0";
 });
-
 // add "setting button"
-
 const settingBtn = document.querySelector(".setting");
 const closeBtn = document.querySelector(".close");
 const acceptBtn = document.querySelector(".accept");
 const set = document.querySelector(".set");
-
 settingBtn.addEventListener("click", function () {
   set.style.display = "block";
 });
-
 // close button of setting
 closeBtn.addEventListener("click", function () {
   set.style.display = "none";
 });
-
 // accept button of setting
 const valueMaxNumber = document.querySelector(".maxNumber");
 valueMaxNumber.addEventListener("submit", function (e) {
   e.preventDefault();
 });
 console.log(secretNumber);
-
 let accept = false;
 acceptBtn.addEventListener("click", function () {
   if (valueMaxNumber.value < 1 || !valueMaxNumber.value) {
@@ -138,7 +119,6 @@ acceptBtn.addEventListener("click", function () {
     secretNumber = Math.trunc(Math.random() * valueMaxNumber.value) + 1;
     accept = true;
   }
-
   console.log(secretNumber);
   console.log(accept);
 });
