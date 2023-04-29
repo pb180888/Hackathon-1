@@ -16,6 +16,8 @@ const displayScore = function (message) {
   document.querySelector(".score").textContent = message;
 };
 let secretNumber = Math.trunc(Math.random() * 100) + 1;
+
+// function which explain a process of game
 function play() {
   const guess = Number(document.querySelector(".guess").value);
   if (!guess) {
@@ -47,6 +49,8 @@ function play() {
     }
   }
 }
+
+// for checking your result you can use to options - button "check" and key "Enter"
 document.querySelector(".check").addEventListener("click", play);
 document.addEventListener("keydown", function (e) {
   if (e.code === "Enter") {
@@ -54,7 +58,7 @@ document.addEventListener("keydown", function (e) {
   }
 });
 
-// create function for again action
+// create function for again action(to start the game again)
 let againBtn = document.querySelector(".again");
 function again() {
   score = 20;
