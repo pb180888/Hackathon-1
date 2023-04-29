@@ -32,6 +32,7 @@ function play() {
     displayHighscore(highscore);
     document.querySelector(".check").style.visibility = "hidden";
     audio.play();
+    audio.currentTime = 0;
 
     if (score > highscore) {
       highscore = score;
