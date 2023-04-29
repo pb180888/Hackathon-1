@@ -2,7 +2,8 @@ const firstScore = 20;
 let score = 20;
 let highscore = 0;
 let between = document.querySelector(".between");
-const audio = document.querySelector("audio");
+const audio = document.querySelector(".win");
+const audio1 = document.querySelector(".lose");
 const displayMessage = function (message) {
   document.querySelector(".message").textContent = message;
 };
@@ -42,6 +43,8 @@ function play() {
       score--;
       displayScore(score);
     } else {
+      audio1.play();
+      audio1.currentTime = 0;
       displayMessage(`You lose`);
       displayScore(0);
       document.querySelector(".check").style.visibility = "hidden";
@@ -59,6 +62,7 @@ document.addEventListener("keydown", function (e) {
 let againBtn = document.querySelector(".again");
 function again() {
   audio.pause();
+  audio1.pause();
   score = 20;
   displayNumber("?");
   document.querySelector(".guess").value = "";
