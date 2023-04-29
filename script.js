@@ -46,6 +46,7 @@ function play() {
       audio1.play();
       audio1.currentTime = 0;
       displayNumber(secretNumber);
+      document.querySelector(".number").style.backgroundColor = "red";
       displayMessage(`You lose`);
       displayScore(0);
       document.querySelector(".check").style.visibility = "hidden";
@@ -62,6 +63,7 @@ document.addEventListener("keydown", function (e) {
 // create function for again action(to start the game again)
 let againBtn = document.querySelector(".again");
 function again() {
+  document.querySelector(".number").style.backgroundColor = "#eee";
   audio.pause();
   audio1.pause();
   score = 20;
