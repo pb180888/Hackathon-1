@@ -2,6 +2,7 @@ const firstScore = 20;
 let score = 20;
 let highscore = 0;
 let between = document.querySelector(".between");
+const audio = document.querySelector("audio");
 const displayMessage = function (message) {
   document.querySelector(".message").textContent = message;
 };
@@ -28,6 +29,8 @@ function play() {
     document.querySelector(".message").style.height = `9rem`;
     displayHighscore(highscore);
     document.querySelector(".check").style.visibility = "hidden";
+    audio.play();
+
     if (score > highscore) {
       highscore = score;
       displayHighscore(highscore);
