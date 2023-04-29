@@ -61,6 +61,7 @@ document.addEventListener("keydown", function (e) {
 // create function for again action(to start the game again)
 let againBtn = document.querySelector(".again");
 function again() {
+  audio.pause();
   score = 20;
   displayNumber("?");
   document.querySelector(".guess").value = "";
