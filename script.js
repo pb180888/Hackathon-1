@@ -57,6 +57,13 @@ document.addEventListener("keydown", function (e) {
   if (e.code === "Enter") {
     play();
   }
+  let againBtn = document.querySelector(".again");
+  againBtn.addEventListener("click", again)
+function again() {
+ audio.pause();
+}
+
+
 });
 
 // create function for again action(to start the game again)
