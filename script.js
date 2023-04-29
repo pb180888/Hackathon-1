@@ -45,6 +45,7 @@ function play() {
     } else {
       audio1.play();
       audio1.currentTime = 0;
+      displayNumber(secretNumber);
       displayMessage(`You lose`);
       displayScore(0);
       document.querySelector(".check").style.visibility = "hidden";
