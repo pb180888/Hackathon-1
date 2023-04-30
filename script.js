@@ -129,4 +129,3 @@ acceptBtn.addEventListener("click", function () {
   console.log(secretNumber);
   console.log(accept);
 });
-// end
