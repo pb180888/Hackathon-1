@@ -61,8 +61,6 @@ document.addEventListener("keydown", function (e) {
 function again() {
  audio.pause();
 }
-
-
 });
 
 // create function for again action(to start the game again)
